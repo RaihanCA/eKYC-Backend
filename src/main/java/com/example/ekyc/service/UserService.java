@@ -12,7 +12,7 @@ import java.util.Optional;
 @Service
 public class UserService {
 
-    UserEntity userEntity = new UserEntity();
+
 
     private final UserRepository userRepository;
 
@@ -22,7 +22,8 @@ public class UserService {
     }
 
     public String addUser(UserDTO userdto){
-        userEntity.setUserId(ConstantUtil.getUUID());
+        UserEntity userEntity = new UserEntity();
+        //userEntity.setUserId(ConstantUtil.getUUID());
         userEntity.setEmail(userdto.getEmail());
         userEntity.setUserName(userdto.getUserName());
         userEntity.setUserRole(userdto.getUserRole());
