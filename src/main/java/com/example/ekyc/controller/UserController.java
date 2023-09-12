@@ -5,6 +5,7 @@ import com.example.ekyc.entity.UserEntity;
 import com.example.ekyc.repository.UserRepository;
 import com.example.ekyc.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,16 +31,23 @@ public class UserController{
 
 
     }
+
     @GetMapping("/user/{userId}")
-    public ResponseEntity<UserDTO> getUserById(@PathVariable String userId){
-        UserDTO userDTO = userService.getUserById(userId);
-        if(userDTO != null){
-            return ResponseEntity.ok(userDTO);
-        }
-        else{
-            return ResponseEntity.notFound().build();
+    public ResponseEntity<UserDTO> getUserById(@PathVariable String userId) {
+        try {
+            UserDTO userDTO = userService.getUserById(userId);
+            if (userDTO != null) {
+                return ResponseEntity.ok(userDTO);
+            } else {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+            }
+        } catch (Exception e) {
+            // Log the exception for debugging purposes
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
+
 
     @PutMapping("/user/{userId}")
     public ResponseEntity<Void> updateUser(@PathVariable String userId, @RequestBody UserDTO userdto) {
