@@ -15,14 +15,14 @@ public class UserService {
 
 
     private final UserRepository userRepository;
-
+    UserEntity userEntity = new UserEntity();
     @Autowired
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
     public String addUser(UserDTO userdto){
-        UserEntity userEntity = new UserEntity();
+
         //userEntity.setUserId(ConstantUtil.getUUID());
         userEntity.setEmail(userdto.getEmail());
         userEntity.setUserName(userdto.getUserName());

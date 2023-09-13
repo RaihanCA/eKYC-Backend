@@ -49,17 +49,12 @@ public class OcrService {
         String dob = splitText[1]; // "Date of Birth: 03Jul1999"
         String idNo = splitText[2]; // "ID NO: 5103985445"
 
-        // Split each string again at ": " to get the actual values
-//        String actualName = name.split(": ")[1]; // "DABASHIS KUNDU SHENTO"
-//        String actualDob = dob.split(": ")[1]; // "03Jul1999"
-//        String actualIdNo = idNo.split(": ")[1]; // "5103985445"
-
         // Create a new OcrResponseDTO, set the extracted text to it and return
         OcrResponseDTO response = new OcrResponseDTO();
 
         response.setName(name);
         response.setDob(dob);
-        response.setIdNo(idNo);
+        response.setNid(idNo);
 
 
         return response;
@@ -112,7 +107,9 @@ public class OcrService {
         }
 
         // Return the extracted data as a formatted string
-        return "Name: " + name + "\nDate of Birth: " + dob + "\nID NO: " + id;
+        //
+         return "Name: " + name + "\nDate of Birth: " + dob + "\nID NO: " + id;
+        //return "" + name + "\n" + dob + "\n" + id;
 
     }
 

@@ -27,7 +27,6 @@ public class OcrController {
     public OcrResponseDTO performOcr(@RequestParam MultipartFile image) throws Exception {
         try {
             // Invokes the performOcr method of ocrService with the given image
-           //return ocrService.performOcr(image);
             return ocrService.performOcr(image);
         } catch (IOException e) {
             // If an IOException occurs, it's thrown as a RuntimeException

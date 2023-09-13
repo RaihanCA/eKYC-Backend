@@ -5,7 +5,7 @@ public class OcrResponseDTO {
 
     private String name;
     private String dob;
-    private String idNo;
+    private String nid;
 
     public String getName() {
         return name;
@@ -23,12 +23,12 @@ public class OcrResponseDTO {
         this.dob = dob;
     }
 
-    public String getIdNo() {
-        return idNo;
+    public String getNid() {
+        return nid;
     }
 
-    public void setIdNo(String idNo)  {
-        this.idNo = idNo;
+    public void setNid(String nid)  {
+        this.nid = nid;
     }
 
 }
